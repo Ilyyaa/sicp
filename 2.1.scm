@@ -1,0 +1,12 @@
+(define make-rat cons)
+(define numer car)
+(define denom cdr)
+
+(define (mul-rat x y)
+    (define ans (make-rat (* (numer x) (numer y))
+            (* (denom x) (denom y))))
+  (if (< (denom ans) 0)
+      (make-rat (* -1 (numer ans))
+                (* -1 (denom ans)))
+      ans) 
+  )
